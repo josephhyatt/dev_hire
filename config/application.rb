@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module DevHire
   class Application < Rails::Application
     config.active_job.queue_adapter = :sidekiq
-    config.application_name = 'dev_hire'
+    config.application_name = 'Dev Hire'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
