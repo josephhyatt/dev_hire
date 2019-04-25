@@ -1,6 +1,5 @@
 <div class="p-10 bg-white border border-grey-light rounded">
   <%= form_with(model: meeting, local: true, class: "meeting-form") do |form| %>
-  
     <% if meeting.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
