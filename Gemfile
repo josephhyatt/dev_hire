@@ -41,6 +41,7 @@ gem 'sidekiq', '~> 5.1', '>= 5.1.3'       # Simple, efficient background process
 gem 'tailwindcss', '~> 0.2.0'             # Tailwind CSS Rails Integration + Webpacker
 gem 'webpacker', '~> 3.5', '>= 3.5.3'     # Manages app-like JavaScript modules in Rails
 gem 'awesome_print', '~> 1.8'             # Pretty print Ruby objects to visualize their structure
+gem 'pg'
 
 ### Dev Hire Specific Gems ###
 gem 'simple_calendar', '~> 2.3'           # A simple Rails calendar
