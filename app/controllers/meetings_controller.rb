@@ -50,6 +50,7 @@ class MeetingsController < ApplicationController
     if @meeting.save
       flash[:notice] = "Meeting was successfully created."
       redirect_to meeting_path(@meeting)
+      MeetingMailer.with(meeting: @meeting, user: current_user).meetings_scheduled.deliver_later
     else
       render 'new'
     end
