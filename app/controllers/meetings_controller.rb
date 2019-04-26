@@ -36,7 +36,7 @@ class MeetingsController < ApplicationController
     charge = Stripe::Charge.create(
       amount: 19900,
       currency: "usd",
-      description: "Consultly",
+      description: "Dev Hire",
       source: token
     )
 
