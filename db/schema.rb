@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_04_26_004151) do
     t.datetime "updated_at", null: false
     t.string "stripe_id"
     t.string "card_brand"
-    t.string "car_exp_month"
+    t.string "card_exp_month"
     t.string "card_exp_year"
     t.string "card_last4"
     t.index ["email"], name: "index_users_on_email", unique: true
