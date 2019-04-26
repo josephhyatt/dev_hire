@@ -12,6 +12,6 @@ module ApplicationHelper
 
   # Check if a user is an admin
   def admin?
-    user_signed_in? && current_user.admin? 
+    user_signed_in? && current_user.admin?
   end
 end

@@ -1,11 +1,16 @@
 class MeetingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_meeting, only: [:show, :edit, :update, :destory]
+  before_action :must_be_admin, only: [:active_sessions]
   
-  def index
     # Accepts meetings from current use thats logged in
-    @meetings = current_user.meetings.all
-  end
+    def index
+      if current_user.admin?
+        @meetings = Meeting.all
+      else
+        @meetings = current_user.meetings.where(user_id: current_user)
+      end
+    end
 
   def show
     @comment = Comment.new
@@ -25,7 +30,7 @@ class MeetingsController < ApplicationController
       flash[:notice] = "Meeting was successfully created."
       redirect_to meeting_path(@meeting)
     else
-      render 'show'
+      render 'new'
     end
   end
 
@@ -41,7 +46,11 @@ class MeetingsController < ApplicationController
   def destroy
     @meeting.destroy
     flash[:notice] = "Meeting was successfully cancelled and deleted."
-		redirect_to meetings_path
+    redirect_to meetings_path
+  end
+
+  def active_sessions
+    @active_sessions = Meeting.where("end_time > ?", Time.now)
   end
 
   private
@@ -56,4 +65,9 @@ class MeetingsController < ApplicationController
     params.require(:meeting).permit(:name, :start_time, :end_time, :user_id)
   end
 
+  def must_be_admin
+    unless current_user.admin?
+      redirect_to meetings_path, alert: "You don't have access to this page"
+    end
+  end
 end

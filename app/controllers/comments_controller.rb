@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
   before_action :set_comment, only: [:edit, :update, :show, :destroy]
   before_action :set_meeting
 
@@ -10,11 +10,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @meeting.comments.create(params[:comment].permit(:reply, :meeting_id))
     @comment.user_id = current_user.id
+
     if @comment.save
-      flash[:notice] = "Meeting was successfully created."
+      flash[:notice] = "Comment was successfully created."
       redirect_to meeting_path(@meeting)
     else
-      render 'show'
+      redirect_to meeting_path(@meeting)
+      flash[:notice] = "Comment was successfully created."
     end
   end
 

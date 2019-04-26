@@ -5,7 +5,7 @@
       <div class="text-grey-darkest"><%= sanitize comment.reply %></div>
     </div>
 
-    <% if author_of(comment) %>
+    <% unless author_of(comment) %>
       <%= link_to "Delete", meeting_comment_path(comment.meeting, comment), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-destroy" %>
     <% end %>
   </div>
