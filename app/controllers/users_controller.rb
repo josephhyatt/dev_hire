@@ -12,5 +12,5 @@ class UsersController < ApplicationController
       redirect_to meetings_path, alert: "You don't have access to this page"
     end
   end
-  
+   
 end 
