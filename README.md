@@ -1,24 +1,8 @@
-# README
+# Dev Hire
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+`Dev Hire` is an open source website I created for my portfolio site as a way for a client to setup an appointment with me for freelance work. I'm using Ruby on Rails, JavaScript, and Tailwind CSS to create this project.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Stripe - To make or receive payments over the internet.
+* Foreman - Allows a user to use multiple procfiles in a Ruby on Rails application. Foreman will startup Redis, Sidekiq, and the Rails Server for you.
+* Tailwind CSS - A CSS framework which is different from frameworks such as Bootstrap which give the site a different feel.
+* Webpacker to manage app like JavaScript modules in Ruby on Rails.
